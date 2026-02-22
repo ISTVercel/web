@@ -11,7 +11,7 @@ export const useClipboard = () => {
   //
   // https://webkit.org/blog/10855/
   const copyToClipboard = (quickLinkUrl: string) => {
-    if (typeof ClipboardItem && navigator?.clipboard?.write) {
+    if (typeof ClipboardItem !== 'undefined' && navigator?.clipboard?.write) {
       return navigator.clipboard.write([
         new ClipboardItem({
           'text/plain': new Blob([quickLinkUrl], { type: 'text/plain' })
